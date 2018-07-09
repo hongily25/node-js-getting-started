@@ -54,7 +54,9 @@ app.get('/callback', async (req, res) => {
 
   // At this point you can fetch protected resources but lets save
   // the token and show how this is done from a persisted token in index page.
-  res.redirect('/');
+  res.render('pages/index', {
+    reports: reports,
+  });
 });
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))

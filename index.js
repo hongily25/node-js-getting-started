@@ -21,7 +21,11 @@ app.use(session({
 
 app.get('/', async (req, res) => {
   const scope = 'report:eye-color report:beard-thickness report:morning-person';
-  const authorizeUrl = genomeLink.OAuth.authorizeUrl({ scope: scope });
+  const authorizeUrl = genomeLink.OAuth.authorizeUrl({ 
+    clientId: '4Xb2JjlEEJF51g7PLgrN3lseiTpavMXbkpj6kO2l',
+    callbackUrl: 'https://babyonboard.herokuapp.com/callback',
+    scope: scope 
+  });
 
   // Fetching a protected resource using an OAuth2 token if exists.
   let reports = [];
